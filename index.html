@@ -126,6 +126,86 @@ footer{border-top:1px solid var(--border);margin-top:3rem;padding-top:1.5rem;tex
 <div class="note"><strong>Network:</strong> HyperEVM mainnet (Chain ID 999) · <strong>DEX:</strong> HyperSwap V2 · <strong>Royalty:</strong> 2.5%</div>
 
 
+
+<!-- WALLET CHECKER -->
+<h2>Check Airdrop Eligibility</h2>
+<p>Enter your wallet address to check if you are eligible for the Hypurr airdrop.</p>
+<div style="margin:1rem 0;">
+  <input id="wallet-input" type="text" placeholder="0x..." 
+    style="width:100%;padding:12px 16px;background:var(--surface);border:1px solid var(--border);border-radius:8px;color:var(--text);font-size:14px;font-family:monospace;outline:none;box-sizing:border-box;">
+  <button onclick="checkWallet()" 
+    style="margin-top:.75rem;width:100%;padding:12px;background:var(--green);color:#1A2E1A;border:none;border-radius:8px;font-size:15px;font-weight:700;cursor:pointer;">
+    Check Eligibility
+  </button>
+</div>
+<div id="checker-result" style="display:none;margin-top:1rem;padding:1rem 1.25rem;border-radius:10px;font-size:15px;"></div>
+
+<script>
+const GIST_URL = 'https://gist.githubusercontent.com/Hyptoadz/5286c9b27aced9ca62efe052b5978a95/raw/';
+let airdropList = null;
+
+async function loadList() {
+  if (airdropList) return airdropList;
+  try {
+    const res = await fetch(GIST_URL);
+    const text = await res.text();
+    airdropList = text.toLowerCase().split('\n').map(l => l.trim()).filter(Boolean);
+    return airdropList;
+  } catch(e) {
+    return null;
+  }
+}
+
+async function checkWallet() {
+  const input = document.getElementById('wallet-input').value.trim().toLowerCase();
+  const result = document.getElementById('checker-result');
+  
+  if (!input || !input.startsWith('0x') || input.length !== 42) {
+    result.style.display = 'block';
+    result.style.background = 'rgba(240,100,100,.08)';
+    result.style.border = '1px solid rgba(240,100,100,.2)';
+    result.style.color = '#E8A0A0';
+    result.innerHTML = '⚠️ Please enter a valid wallet address (0x...)';
+    return;
+  }
+
+  result.style.display = 'block';
+  result.style.background = 'var(--surface)';
+  result.style.border = '1px solid var(--border)';
+  result.style.color = 'var(--muted)';
+  result.innerHTML = 'Checking...';
+
+  const list = await loadList();
+  if (!list) {
+    result.innerHTML = '❌ Could not load airdrop list. Try again.';
+    return;
+  }
+
+  const found = list.find(line => line.includes(input));
+  
+  if (found) {
+    // Parse tier dari line
+    let nfts = '1 NFT', toadz = '22,826 $TOADZ';
+    if (found.includes('4 nft') || found.includes(',4,')) { nfts = '4 NFTs'; toadz = '91,304 $TOADZ'; }
+    else if (found.includes('2 nft') || found.includes(',2,')) { nfts = '2 NFTs'; toadz = '45,652 $TOADZ'; }
+    
+    result.style.background = 'rgba(123,198,122,.08)';
+    result.style.border = '1px solid rgba(123,198,122,.3)';
+    result.style.color = 'var(--text)';
+    result.innerHTML = '✅ <strong style="color:#7BC67A">Eligible for airdrop!</strong><br><span style="color:var(--muted);font-size:14px;">You will receive ' + nfts + ' + ' + toadz + ' — automatically distributed at mint. No claiming required.</span>';
+  } else {
+    result.style.background = 'var(--surface)';
+    result.style.border = '1px solid var(--border)';
+    result.style.color = 'var(--text)';
+    result.innerHTML = '❌ <strong>Not eligible for airdrop.</strong><br><span style="color:var(--muted);font-size:14px;">You can still mint during public phase.</span>';
+  }
+}
+
+document.getElementById('wallet-input').addEventListener('keypress', function(e) {
+  if (e.key === 'Enter') checkWallet();
+});
+</script>
+
 <!-- MCAP SCENARIOS -->
 <h2>$TOADZ Mcap Scenarios</h2>
 <p>Based on sold-out scenario. 1 mint = 27,855 $TOADZ at cost 0.077 HYPE (~$4.40).</p>
