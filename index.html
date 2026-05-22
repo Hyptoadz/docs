@@ -3,827 +3,131 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Docs — Hyptoadz</title>
-<link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Archivo:wght@400;500;600&display=swap" rel="stylesheet">
+<title>Hyptoadz — Documentation</title>
 <style>
-:root{--bg:#1E3A2A;--surface:#253D2F;--surface2:#2D4D3A;--border:#3D6B4F;--green:#7BC67A;--green2:#5BAD5A;--sparkle:#B8EBC0;--teal:#2D7D5A;--text:#F0F5F0;--muted:#8FB89A;--yellow:#F5D76E;--red:#E05C5C;}
 *{margin:0;padding:0;box-sizing:border-box;}
-html{scroll-behavior:smooth;}
-body{background:var(--bg);color:var(--text);font-family:'Archivo',sans-serif;font-size:16px;line-height:1.7;display:flex;flex-direction:column;min-height:100vh;}
-
-/* NAV */
-nav{background:rgba(30,58,42,0.97);backdrop-filter:blur(12px);border-bottom:1px solid var(--border);padding:0 2rem;display:flex;align-items:center;justify-content:space-between;height:62px;position:sticky;top:0;z-index:100;}
-.nav-logo{font-family:'Archivo Black',sans-serif;font-size:18px;color:var(--green);text-decoration:none;display:flex;align-items:center;gap:8px;}
-.nav-links{display:flex;align-items:center;gap:1.5rem;}
-.nav-links a{color:var(--muted);text-decoration:none;font-size:14px;font-weight:600;transition:color .2s;}
-.nav-links a:hover{color:var(--text);}
-.nav-btn{background:var(--green);color:#1A2E1A;padding:9px 22px;border-radius:8px;font-size:14px;font-weight:700;font-family:'Archivo Black',sans-serif;text-decoration:none;}
-.nav-right{display:flex;align-items:center;gap:1.5rem;}
-.nav-right a{color:var(--muted);text-decoration:none;font-size:14px;font-weight:600;transition:color .2s;}
-.nav-right{display:flex;align-items:center;gap:1.5rem;}
-.nav-right a{color:var(--muted);text-decoration:none;font-size:14px;font-weight:600;transition:color .2s;}
-.nav-right a:hover{color:var(--text);}
-.nav-right a.active{color:var(--text);}
-.nav-btn{background:var(--green);color:#1A2E1A;padding:9px 22px;border-radius:8px;font-size:14px;font-weight:700;font-family:'Archivo Black',sans-serif;text-decoration:none;}
-
-/* LAYOUT */
-.layout{display:flex;flex:1;max-width:1200px;margin:0 auto;width:100%;padding:0 1rem;}
-
-/* SIDEBAR */
-.sidebar{width:260px;flex-shrink:0;padding:2rem 1.5rem 2rem 0;position:sticky;top:62px;height:calc(100vh - 62px);overflow-y:auto;}
-.sidebar-section{margin-bottom:2rem;}
-.sidebar-section-title{font-size:11px;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:2px;margin-bottom:.75rem;}
-.sidebar-link{display:block;padding:6px 12px;border-radius:6px;color:var(--muted);text-decoration:none;font-size:14px;font-weight:600;transition:all .15s;margin-bottom:2px;}
-.sidebar-link:hover{background:var(--surface);color:var(--text);}
-.sidebar-link.active{background:rgba(123,198,122,.12);color:var(--green);border-left:2px solid var(--green);}
-
-/* CONTENT */
-.content{flex:1;padding:3rem 2rem;min-width:0;border-left:1px solid var(--border);}
-.doc-section{margin-bottom:4rem;scroll-margin-top:80px;}
-.tag{display:inline-block;background:rgba(123,198,122,.1);border:1px solid rgba(123,198,122,.2);color:var(--green);padding:3px 10px;border-radius:5px;font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;margin-bottom:.75rem;}
-h1{font-family:'Archivo Black',sans-serif;font-size:2.2rem;line-height:1.1;margin-bottom:.75rem;}
-h2{font-family:'Archivo Black',sans-serif;font-size:1.5rem;line-height:1.15;margin-bottom:.75rem;padding-top:1rem;}
-h3{font-family:'Archivo Black',sans-serif;font-size:1.1rem;margin-bottom:.5rem;color:var(--green);}
-p{color:var(--muted);font-size:15px;line-height:1.8;margin-bottom:1rem;font-weight:500;}
-p strong{color:var(--text);}
-.divider{border:none;border-top:1px solid var(--border);margin:3rem 0;}
-
-/* CALLOUT */
-.callout{border-radius:10px;padding:1rem 1.25rem;margin:1.25rem 0;font-size:14px;font-weight:600;}
-.callout-green{background:rgba(123,198,122,.07);border:1px solid rgba(123,198,122,.2);color:var(--sparkle);}
-.callout-yellow{background:rgba(245,215,110,.07);border:1px solid rgba(245,215,110,.2);color:var(--yellow);}
-.callout-red{background:rgba(224,92,92,.07);border:1px solid rgba(224,92,92,.2);color:#F5A0A0;}
-.callout-icon{font-size:16px;margin-right:8px;}
-
-/* TABLE */
-.table-wrap{overflow-x:auto;margin:1.25rem 0;}
-table{width:100%;border-collapse:collapse;font-size:14px;}
-th{text-align:left;padding:10px 14px;font-family:'Archivo Black',sans-serif;font-size:11px;color:var(--muted);letter-spacing:1.5px;text-transform:uppercase;border-bottom:1px solid var(--border);background:var(--surface);}
-td{padding:12px 14px;border-bottom:1px solid var(--border);color:var(--muted);font-weight:500;}
+:root{--bg:#1E3A2A;--surface:#253D2F;--surface2:#2D4D3A;--border:#3D6B4F;--green:#7BC67A;--text:#F0F5F0;--muted:#8FB89A;--yellow:#F5D76E;}
+body{background:var(--bg);color:var(--text);font-family:system-ui,-apple-system,sans-serif;font-size:16px;line-height:1.7;max-width:800px;margin:0 auto;padding:2rem 1.5rem;}
+h1{font-size:2rem;color:var(--green);margin-bottom:.5rem;}
+h2{font-size:1.3rem;color:var(--green);margin:2rem 0 .75rem;padding-bottom:.5rem;border-bottom:1px solid var(--border);}
+h3{font-size:1rem;color:var(--text);margin:1.25rem 0 .5rem;}
+p{color:var(--muted);margin-bottom:1rem;}
+a{color:var(--green);text-decoration:none;}
+a:hover{text-decoration:underline;}
+table{width:100%;border-collapse:collapse;margin:1rem 0;font-size:14px;}
+th{background:var(--surface2);padding:10px 14px;text-align:left;font-size:11px;letter-spacing:1px;text-transform:uppercase;color:var(--muted);}
+td{padding:10px 14px;border-bottom:1px solid var(--border);color:var(--text);}
 tr:last-child td{border-bottom:none;}
-tr:hover td{background:var(--surface);}
-td strong{color:var(--text);}
-.td-green{color:var(--green);font-weight:700;font-family:'Archivo Black',sans-serif;}
-.td-yellow{color:var(--yellow);font-weight:700;}
-
-/* CODE */
-code{background:rgba(123,198,122,.1);color:var(--green);padding:2px 8px;border-radius:5px;font-size:13px;font-family:monospace;}
-.code-block{background:var(--surface);border:1px solid var(--border);border-radius:10px;padding:1.25rem;font-family:monospace;font-size:13px;color:var(--sparkle);overflow-x:auto;margin:1.25rem 0;line-height:1.8;}
-.code-block .comment{color:var(--muted);}
-.code-block .key{color:var(--green);}
-.code-block .val{color:var(--yellow);}
-
-/* STEP LIST */
-.step-list{display:flex;flex-direction:column;gap:.6rem;margin:1.25rem 0;}
-.step-item{display:flex;gap:1rem;align-items:flex-start;background:var(--surface);border:1px solid var(--border);border-radius:10px;padding:1rem 1.25rem;}
-.step-num{width:32px;height:32px;border-radius:8px;background:var(--green);color:#1A2E1A;display:flex;align-items:center;justify-content:center;font-family:'Archivo Black',sans-serif;font-size:14px;flex-shrink:0;}
-.step-item p{margin:0;font-size:14px;}
-
-/* ADDRESS BOX */
-.addr-box{background:var(--surface2);border:1px solid var(--border);border-radius:8px;padding:10px 14px;display:flex;align-items:center;justify-content:space-between;margin:.5rem 0;}
-.addr-val{font-family:monospace;font-size:13px;color:var(--green);}
-.addr-copy{background:none;border:1px solid var(--border);color:var(--muted);padding:4px 10px;border-radius:5px;font-size:11px;cursor:pointer;font-family:'Archivo',sans-serif;font-weight:700;transition:all .15s;}
-.addr-copy:hover{color:var(--green);border-color:var(--green);}
-.addr-label{font-size:12px;color:var(--muted);font-weight:600;margin-bottom:4px;}
-
-/* PILL */
-.pill{display:inline-block;padding:3px 10px;border-radius:5px;font-size:12px;font-weight:700;}
-.pill-green{background:rgba(123,198,122,.12);color:var(--green);}
-.pill-yellow{background:rgba(245,215,110,.12);color:var(--yellow);}
-.pill-red{background:rgba(224,92,92,.12);color:var(--red);}
-.pill-muted{background:var(--surface2);color:var(--muted);}
-
-/* GRID */
-.info-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:.75rem;margin:1.25rem 0;}
-.info-card{background:var(--surface);border:1px solid var(--border);border-radius:10px;padding:1rem;}
-.info-card label{display:block;font-size:11px;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:1px;margin-bottom:4px;}
-.info-card value{display:block;font-family:'Archivo Black',sans-serif;font-size:1.2rem;color:var(--green);}
-.info-card span{display:block;font-size:12px;color:var(--muted);margin-top:2px;}
-
-/* FOOTER */
-footer{border-top:1px solid var(--border);padding:2rem;text-align:center;font-size:13px;color:var(--muted);}
-footer a{color:var(--green);text-decoration:none;}
-
-@media(max-width:768px){.sidebar{display:none;}.content{padding:2rem 1rem;border-left:none;}}
-
-/* ===== MOBILE NAV ===== */
-.hamburger{display:none;background:transparent!important;border:none!important;outline:none!important;box-shadow:none!important;-webkit-appearance:none!important;appearance:none!important;cursor:pointer;padding:10px;flex-direction:column;gap:6px;flex-shrink:0;}
-.hamburger span{display:block!important;width:24px!important;height:3px!important;background-color:#F0F5F0!important;border-radius:3px!important;}
-#mobile-menu{background:#1C3828;border-top:2px solid #3D6B4F;position:fixed;top:62px;left:0;right:0;z-index:9999;flex-direction:column;box-shadow:0 8px 32px rgba(0,0,0,.4);}
-#mobile-menu a{display:block!important;padding:15px 24px!important;color:#C8E6C9!important;font-size:16px!important;font-weight:600!important;text-decoration:none!important;border-bottom:1px solid #2D4D3A!important;font-family:'Archivo',sans-serif!important;}
-#mobile-menu a:last-child{border-bottom:none!important;}
-#mobile-menu a:hover{color:#7BC67A!important;background:rgba(123,198,122,.06)!important;}
-@media(max-width:768px){
-  nav{padding:0 1.25rem!important;}
-  .nav-links{display:none!important;}
-  .nav-btn{display:none!important;}
-  .hamburger{display:flex!important;}
-  .container,.section,.doc-content,.page-inner{padding-left:1.25rem!important;padding-right:1.25rem!important;}
-  .hero{grid-template-columns:1fr!important;text-align:center!important;}
-  .hero-img{display:none!important;}
-  h1,h2{text-align:center;}
-  .s-grid{grid-template-columns:1fr 1fr!important;}
-  .trans-cards{grid-template-columns:1fr!important;}
-  .footer-inner{flex-direction:column!important;gap:1rem!important;text-align:center!important;}
-  .info-grid{grid-template-columns:1fr 1fr!important;}
-  .stat-grid,.stats-row{grid-template-columns:1fr 1fr!important;}
-}
-</style>
-
-<style id="mob">
-.hbg{display:none;background:transparent!important;border:none!important;outline:none!important;-webkit-appearance:none!important;appearance:none!important;cursor:pointer;padding:10px;flex-direction:column;gap:6px;flex-shrink:0;}
-.hbg span{display:block!important;width:24px!important;height:3px!important;background:#F0F5F0!important;border-radius:3px!important;}
-#mnav{background:#1C3828;border-top:2px solid #3D6B4F;position:fixed;top:62px;left:0;right:0;z-index:9999;display:none;flex-direction:column;box-shadow:0 8px 24px rgba(0,0,0,.5);}
-#mnav a{display:block!important;padding:15px 24px!important;color:#C8E6C9!important;font-size:16px!important;font-weight:600!important;text-decoration:none!important;border-bottom:1px solid #2D4D3A!important;font-family:'Archivo',sans-serif!important;}
-#mnav a:last-child{border-bottom:none!important;}
-#mnav a:hover{color:#7BC67A!important;}
-@media(max-width:768px){
-  .nav-links,.nav-btn{display:none!important;}
-  .hbg{display:flex!important;}
-  .container{padding-left:1.25rem!important;padding-right:1.25rem!important;}
-}
-</style>
-<script>
-function toggleMnav(){
-  var m=document.getElementById('mnav');
-  if(!m)return;
-  m.style.display=(m.style.display==='flex'?'none':'flex');
-}
-function closeMnav(){
-  var m=document.getElementById('mnav');
-  if(m)m.style.display='none';
-}
-window.addEventListener('load',function(){
-  document.addEventListener('click',function(e){
-    var m=document.getElementById('mnav');
-    var b=document.querySelector('.hbg');
-    if(m&&b&&m.style.display==='flex'&&!m.contains(e.target)&&!b.contains(e.target)){
-      m.style.display='none';
-    }
-  });
-});
-</script>
-
-<style id="mob-center">
-@media(max-width:768px){
-  footer{padding:1.5rem 1.25rem!important;text-align:center!important;}
-  .footer-inner{flex-direction:column!important;align-items:center!important;justify-content:center!important;gap:.75rem!important;text-align:center!important;}
-  .footer-inner *{text-align:center!important;}
-  .footer-links{justify-content:center!important;flex-wrap:wrap!important;}
-  .section-title,h2{text-align:center!important;}
-  .s-card{text-align:center!important;}
-}
+.tag{display:inline-block;background:rgba(123,198,122,.1);border:1px solid rgba(123,198,122,.2);color:var(--green);padding:3px 10px;border-radius:5px;font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;margin-bottom:1.5rem;}
+.badge{display:inline-block;background:var(--surface2);border:1px solid var(--border);padding:3px 10px;border-radius:6px;font-size:13px;font-family:monospace;}
+.note{background:var(--surface);border:1px solid var(--border);border-radius:10px;padding:1rem 1.25rem;margin:1rem 0;font-size:14px;color:var(--muted);}
+.note strong{color:var(--green);}
+.warn{background:rgba(240,100,100,.08);border:1px solid rgba(240,100,100,.2);border-radius:10px;padding:1rem 1.25rem;margin:1rem 0;font-size:14px;color:#E8A0A0;}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin:1rem 0;}
+.card{background:var(--surface);border:1px solid var(--border);border-radius:10px;padding:1.25rem;}
+.card-label{font-size:11px;letter-spacing:1px;text-transform:uppercase;color:var(--muted);margin-bottom:.4rem;}
+.card-value{font-size:1.5rem;font-weight:700;color:var(--green);}
+header{border-bottom:1px solid var(--border);padding-bottom:1.5rem;margin-bottom:2rem;}
+.logo{font-size:1.1rem;font-weight:700;color:var(--green);margin-bottom:1rem;}
+footer{border-top:1px solid var(--border);margin-top:3rem;padding-top:1.5rem;text-align:center;color:var(--muted);font-size:14px;}
+@media(max-width:600px){.grid{grid-template-columns:1fr;}}
 </style>
 </head>
 <body>
 
-<!-- NAV -->
-<nav>
-  <a href="https://hyptoadz.xyz" class="nav-logo">✦ Hyptoadz</a>
-  <div class="nav-links">
-    <a href="https://hyptoadz.xyz/#mint">Mint</a>
-    <a href="https://hyptoadz.xyz/staking.html">Staking</a>
-    <a href="https://hyptoadz.xyz/#tokenomics">Tokenomics</a>
-    <a href="https://hyptoadz.xyz/#how">How it works</a>
-    <a href="https://hyptoadz.xyz/#transparency">Transparency</a>
-    <a href="https://hyptoadz.xyz/#faq">FAQ</a>
-    <a href="https://hyptoadz.xyz/docs.html" style="color:var(--green);font-weight:700;">Docs</a>
-  </div>
-  <a href="https://hyptoadz.xyz/#mint" class="nav-btn">Mint now</a>
-  
+<header>
+  <div class="logo">✦ Hyptoadz</div>
+  <h1>Documentation</h1>
+  <p>10,000 grumpy toads on HyperEVM. This page covers tokenomics, airdrop, staking, and smart contract details.</p>
+  <div class="note">⚠️ Contract addresses will be published after mainnet deploy. Website launches at the same time.</div>
+</header>
 
-<button class="hbg" onclick="toggleMnav()" aria-label="Menu"><span></span><span></span><span></span></button>
-</nav>
-<div id="mnav">
-  <a href="https://hyptoadz.xyz/#mint" onclick="closeMnav()">Mint</a>
-  <a href="https://hyptoadz.xyz/staking.html" onclick="closeMnav()">Staking</a>
-  <a href="https://hyptoadz.xyz/#tokenomics" onclick="closeMnav()">Tokenomics</a>
-  <a href="https://hyptoadz.xyz/#how" onclick="closeMnav()">How it works</a>
-  <a href="https://hyptoadz.xyz/#transparency" onclick="closeMnav()">Transparency</a>
-  <a href="https://hyptoadz.xyz/#faq" onclick="closeMnav()">FAQ</a>
-  <a href="https://hyptoadz.xyz/docs.html" onclick="closeMnav()">Docs</a>
+<!-- OVERVIEW -->
+<div class="tag">✦ Overview</div>
+<div class="grid">
+  <div class="card"><div class="card-label">Total NFTs</div><div class="card-value">10,000</div></div>
+  <div class="card"><div class="card-label">Mint Price</div><div class="card-value">0.077 HYPE</div></div>
+  <div class="card"><div class="card-label">$TOADZ per Mint</div><div class="card-value">27,855</div></div>
+  <div class="card"><div class="card-label">Total Supply</div><div class="card-value">550M</div></div>
 </div>
 
-
-
-<div class="layout">
-  <!-- SIDEBAR -->
-  <aside class="sidebar">
-    <div class="sidebar-section">
-      <div class="sidebar-section-title">Overview</div>
-      <a href="#intro" class="sidebar-link active">Introduction</a>
-      <a href="#contracts" class="sidebar-link">Contract addresses</a>
-
-    </div>
-    <div class="sidebar-section">
-      <div class="sidebar-section-title">Minting</div>
-      <a href="#how-to-mint" class="sidebar-link">How to mint</a>
-      <a href="#mint-details" class="sidebar-link">Mint details</a>
-      <a href="#why-free" class="sidebar-link">Why almost free</a>
-      <a href="#airdrop" class="sidebar-link">Hypurr airdrop</a>
-      <a href="#lock" class="sidebar-link">48h transfer lock</a>
-    </div>
-    <div class="sidebar-section">
-      <div class="sidebar-section-title">Tokenomics</div>
-      <a href="#supply" class="sidebar-link">Supply breakdown</a>
-      <a href="#dynamic-split" class="sidebar-link">Dynamic split</a>
-      <a href="#fee-breakdown" class="sidebar-link">Where fees go</a>
-      <a href="#tax" class="sidebar-link">Buy/sell tax</a>
-      <a href="#lp" class="sidebar-link">Liquidity pool</a>
-    </div>
-    <div class="sidebar-section">
-      <div class="sidebar-section-title">Staking</div>
-      <a href="#nft-staking" class="sidebar-link">NFT staking</a>
-
-    </div>
-
-    <div class="sidebar-section">
-      <div class="sidebar-section-title">NFT</div>
-      <a href="#traits" class="sidebar-link">Traits & rarity</a>
-
-    </div>
-  </aside>
-
-  <!-- CONTENT -->
-  <main class="content">
-
-    <!-- INTRO -->
-    <div class="doc-section" id="intro">
-      <span class="tag">✦ Overview</span>
-      <h1>Hyptoadz Documentation</h1>
-      <p>Hyptoadz is a collection of 10,000 uniquely generated grumpy toads on HyperEVM. Mint one for 0.077 HYPE and receive 27,855 $TOADZ tokens — worth more than the mint price. Stake your NFT to earn more $TOADZ over time. Everything is on-chain, permissionless, and transparent.</p>
-      <div class="info-grid">
-        <div class="info-card"><label>Total NFTs</label><value>10,000</value></div>
-        <div class="info-card"><label>Public mint</label><value>6,400</value></div>
-        <div class="info-card"><label>Airdrop</label><value>3,600</value></div>
-        <div class="info-card"><label>$TOADZ supply</label><value>550M</value></div>
-        <div class="info-card"><label>Mint price</label><value>0.077 HYPE</value></div>
-        <div class="info-card"><label>TOADZ per mint</label><value>27,855</value></div>
-      </div>
-    </div>
-
-    <hr class="divider">
-
-    <!-- CONTRACTS -->
-    <div class="doc-section" id="contracts">
-      <span class="tag">✦ Contracts</span>
-      <h2>Contract addresses</h2>
-      <p>All contracts are deployed on HyperEVM mainnet (chain ID 999) and verified on the explorer.</p>
-
-      <div class="callout callout-yellow">
-        <span class="callout-icon">⚠️</span>
-        Addresses will be published immediately after mainnet deploy. Do not interact with unverified contracts.
-      </div>
-
-      <div style="margin-top:1.5rem;">
-        <div class="addr-label">HyptoadzNFT</div>
-        <div class="addr-box">
-          <span class="addr-val" id="addr-nft">— Pending mainnet deploy —</span>
-          <button class="addr-copy" onclick="copy('addr-nft')">COPY</button>
-        </div>
-        <div class="addr-label" style="margin-top:.75rem;">ToadzToken ($TOADZ)</div>
-        <div class="addr-box">
-          <span class="addr-val" id="addr-token">— Pending mainnet deploy —</span>
-          <button class="addr-copy" onclick="copy('addr-token')">COPY</button>
-        </div>
-        <div class="addr-label" style="margin-top:.75rem;">HyptoadzMint</div>
-        <div class="addr-box">
-          <span class="addr-val" id="addr-mint">— Pending mainnet deploy —</span>
-          <button class="addr-copy" onclick="copy('addr-mint')">COPY</button>
-        </div>
-        <div class="addr-label" style="margin-top:.75rem;">NFTStaking</div>
-        <div class="addr-box">
-          <span class="addr-val" id="addr-nfts">— Pending mainnet deploy —</span>
-          <button class="addr-copy" onclick="copy('addr-nfts')">COPY</button>
-        </div>
-        <div class="addr-label" style="margin-top:.75rem;">TokenStaking</div>
-        <div class="addr-box">
-          <span class="addr-val" id="addr-tkns">— Pending mainnet deploy —</span>
-          <button class="addr-copy" onclick="copy('addr-tkns')">COPY</button>
-        </div>
-      </div>
-    </div>
-
-    <hr class="divider">
-
-    <!-- NETWORK -->
-    
-
-    <!-- HOW TO MINT -->
-    <div class="doc-section" id="how-to-mint">
-      <span class="tag">✦ Minting</span>
-      <h2>How to mint</h2>
-      <div class="step-list">
-        <div class="step-item"><div class="step-num">1</div><div><strong>Get HYPE</strong><p>Bridge or buy HYPE on Hyperliquid. You need at least 0.077 HYPE per NFT plus a small amount for gas.</p></div></div>
-        <div class="step-item"><div class="step-num">2</div><div><strong>Connect wallet</strong><p>Visit <a href="https://hyptoadz.xyz" style="color:var(--green)">hyptoadz.xyz</a> and click "Connect Wallet". MetaMask and Rabby are supported. The site will prompt you to add HyperEVM automatically.</p></div></div>
-        <div class="step-item"><div class="step-num">3</div><div><strong>Select quantity</strong><p>Choose 1–5 NFTs per transaction. Each costs 0.077 HYPE and includes 27,855 $TOADZ.</p></div></div>
-        <div class="step-item"><div class="step-num">4</div><div><strong>Confirm transaction</strong><p>Approve the transaction in your wallet. Gas is minimal on HyperEVM (~$0.01).</p></div></div>
-        <div class="step-item"><div class="step-num">5</div><div><strong>Receive NFT + $TOADZ</strong><p>NFT and $TOADZ arrive in your wallet instantly. Both are locked for transfers until mint ends and LP is added.</p></div></div>
-      </div>
-    </div>
-
-    <hr class="divider">
-
-    <!-- MINT DETAILS -->
-    <div class="doc-section" id="mint-details">
-      <h2>Mint details</h2>
-      <div class="table-wrap">
-        <table>
-          <tr><th>Parameter</th><th>Value</th></tr>
-          <tr><td>Mint price</td><td class="td-green">0.077 HYPE</td></tr>
-          <tr><td>$TOADZ per mint</td><td class="td-green">27,855</td></tr>
-          <tr><td>Max per tx</td><td><strong>5 NFTs</strong></td></tr>
-          <tr><td>Public supply</td><td><strong>6,400 NFTs</strong></td></tr>
-          <tr><td>Airdrop supply</td><td><strong>3,600 NFTs</strong></td></tr>
-          <tr><td>Total supply</td><td><strong>10,000 NFTs</strong></td></tr>
-          <tr><td>Mint window</td><td><strong>48 hours</strong></td></tr>
-          <tr><td>Reveal</td><td><strong>At mint — metadata on IPFS</strong></td></tr>
-        </table>
-      </div>
-      <div class="callout callout-green">
-        <span class="callout-icon">✦</span>
-        Token IDs for public mints are assigned randomly using a gas-efficient on-chain algorithm. Each minter gets a unique, unpredictable ID.
-      </div>
-    </div>
-
-    <hr class="divider">
-
-    <!-- WHY ALMOST FREE -->
-    <div class="doc-section" id="why-free">
-      <h2>Why minting is almost free</h2>
-      <p>When you mint, you pay 0.077 HYPE and receive 27,855 $TOADZ. Here is exactly why those $TOADZ are worth more than what you paid.</p>
-
-      <div class="callout callout-green">
-        <span class="callout-icon">✦</span>
-        <strong>TL;DR:</strong> LP pool creates a fair listing price. Your $TOADZ at listing is worth more than your mint cost.
-      </div>
-
-      <h3 style="margin-top:1.5rem;">The math</h3>
-      <div class="code-block">
-<span class="key">LP pool</span>        = <span class="val">~340 HYPE + 100,000,000 $TOADZ</span>
-<span class="key">Listing price</span>  = <span class="val">340 HYPE × live HYPE price ÷ 100,000,000</span>
-<span class="key">Value per mint</span> = <span class="val">27,855 × listing price</span>
-<span class="key">Mint cost</span>      = <span class="val">0.077 HYPE</span>
-<span class="key">NFT effective cost</span> = <span class="val">~$0.99 profit ✦</span>
-      </div>
-
-      <h3 style="margin-top:1.5rem;">Calculator</h3>
-      <p>Select how many NFTs you want to mint and see exactly what you get.</p>
-
-      <div style="background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:1.5rem;margin-top:1rem;">
-        <input type="hidden" id="calc-minted" value="6400">
-        <input type="hidden" id="calc-hype" value="56">
-
-        <!-- Qty selector -->
-        <div style="display:flex;align-items:center;gap:12px;margin-bottom:1.5rem;">
-          <span style="font-size:13px;font-weight:600;color:var(--muted);">How many NFTs?</span>
-          <div style="display:flex;align-items:center;gap:10px;">
-            <button onclick="chgFree(-1)" style="width:34px;height:34px;border-radius:8px;border:1px solid var(--border);background:var(--surface2);color:var(--green);font-size:18px;font-weight:700;cursor:pointer;font-family:inherit;">−</button>
-            <span id="calc-qty-display" style="font-family:'Archivo Black',sans-serif;font-size:1.4rem;min-width:20px;text-align:center;color:var(--green);">1</span>
-            <button onclick="chgFree(1)" style="width:34px;height:34px;border-radius:8px;border:1px solid var(--border);background:var(--surface2);color:var(--green);font-size:18px;font-weight:700;cursor:pointer;font-family:inherit;">+</button>
-          </div>
-          <span style="font-size:12px;color:var(--muted);">(max 5 per tx)</span>
-        </div>
-
-        <!-- Results -->
-        <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:.75rem;margin-bottom:1rem;">
-          <div style="background:var(--surface2);border-radius:10px;padding:1rem;text-align:center;border:1px solid var(--border);">
-            <div style="font-size:10px;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:1px;margin-bottom:4px;">You pay</div>
-            <div id="calc-cost" style="font-family:'Archivo Black',sans-serif;font-size:1.3rem;">$4.31</div>
-            <div id="calc-cost-hype" style="font-size:11px;color:var(--muted);margin-top:2px;">0.077 HYPE</div>
-          </div>
-          <div style="background:var(--surface2);border-radius:10px;padding:1rem;text-align:center;border:1px solid var(--border);">
-            <div style="font-size:10px;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:1px;margin-bottom:4px;">$TOADZ you get</div>
-            <div id="calc-toadz-amt" style="font-family:'Archivo Black',sans-serif;font-size:1.3rem;color:var(--green);">27,855</div>
-            <div id="calc-toadz" style="font-size:11px;color:var(--green);margin-top:2px;">~$5.30 at listing</div>
-          </div>
-          <div style="background:rgba(123,198,122,.08);border-radius:10px;padding:1rem;text-align:center;border:1px solid rgba(123,198,122,.2);">
-            <div style="font-size:10px;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:1px;margin-bottom:4px;">NFT effective cost</div>
-            <div id="calc-nft" style="font-family:'Archivo Black',sans-serif;font-size:1.3rem;color:var(--green);">~$0.99 profit</div>
-            
-          </div>
-        </div>
-        <div id="calc-note" style="font-size:11px;color:var(--muted);text-align:center;font-weight:500;">Based on sold-out scenario · live HYPE price</div>
-      </div>
-
-      <h3 style="margin-top:2rem;">Mcap scenarios</h3>
-      <p>What if $TOADZ pumps? Select quantity and see your potential returns.</p>
-
-      <div style="background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:1.5rem;margin-top:1rem;">
-
-        <!-- Qty selector -->
-        <div style="display:flex;align-items:center;gap:1.5rem;margin-bottom:1.5rem;flex-wrap:wrap;">
-          <div>
-            <div style="font-size:11px;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:1px;margin-bottom:8px;">How many NFTs?</div>
-            <div style="display:flex;align-items:center;gap:10px;">
-              <button onclick="chgMcap(-1)" style="width:36px;height:36px;border-radius:8px;border:1px solid var(--border);background:var(--surface2);color:var(--green);font-size:20px;font-weight:700;cursor:pointer;font-family:inherit;">−</button>
-              <span id="mcap-qty-display" style="font-family:'Archivo Black',sans-serif;font-size:1.5rem;min-width:20px;text-align:center;">1</span>
-              <button onclick="chgMcap(1)" style="width:36px;height:36px;border-radius:8px;border:1px solid var(--border);background:var(--surface2);color:var(--green);font-size:20px;font-weight:700;cursor:pointer;font-family:inherit;">+</button>
-            </div>
-          </div>
-
-          <!-- You receive summary -->
-          <div style="flex:1;background:rgba(123,198,122,.06);border:1px solid rgba(123,198,122,.2);border-radius:10px;padding:1rem;">
-            <div style="font-size:10px;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:1px;margin-bottom:8px;">You will receive</div>
-            <div style="display:flex;gap:1.5rem;flex-wrap:wrap;">
-              <div>
-                <span style="font-family:'Archivo Black',sans-serif;font-size:1.2rem;color:var(--text);" id="rcv-nft">1</span>
-                <span style="font-size:12px;color:var(--muted);margin-left:4px;">NFT</span>
-              </div>
-              <div style="color:var(--muted);">+</div>
-              <div>
-                <span style="font-family:'Archivo Black',sans-serif;font-size:1.2rem;color:var(--green);" id="rcv-toadz">27,855</span>
-                <span style="font-size:12px;color:var(--muted);margin-left:4px;">$TOADZ</span>
-              </div>
-              <div style="color:var(--muted);">·</div>
-              <div>
-                <span style="font-size:12px;color:var(--muted);">cost</span>
-                <span style="font-family:'Archivo Black',sans-serif;font-size:1.1rem;color:var(--text);margin-left:4px;" id="rcv-cost">0.077 HYPE</span>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <!-- Table -->
-        <div style="overflow-x:auto;">
-          <table style="width:100%;border-collapse:collapse;font-size:14px;">
-            <thead>
-              <tr style="border-bottom:1px solid var(--border);">
-                <th style="text-align:left;padding:10px 14px;font-size:11px;color:var(--muted);font-weight:700;letter-spacing:1px;text-transform:uppercase;background:var(--surface2);">Scenario</th>
-                <th style="text-align:left;padding:10px 14px;font-size:11px;color:var(--muted);font-weight:700;letter-spacing:1px;text-transform:uppercase;background:var(--surface2);">$TOADZ Mcap</th>
-                <th style="text-align:left;padding:10px 14px;font-size:11px;color:var(--muted);font-weight:700;letter-spacing:1px;text-transform:uppercase;background:var(--surface2);">Price</th>
-                <th style="text-align:left;padding:10px 14px;font-size:11px;color:var(--muted);font-weight:700;letter-spacing:1px;text-transform:uppercase;background:var(--surface2);">Your $TOADZ</th>
-                <th style="text-align:left;padding:10px 14px;font-size:11px;color:var(--muted);font-weight:700;letter-spacing:1px;text-transform:uppercase;background:var(--surface2);">ROI</th>
-              </tr>
-            </thead>
-            <tbody id="mcap-table">
-              <tr><td colspan="5" style="padding:14px;color:var(--muted);text-align:center;font-size:13px;">Loading...</td></tr>
-            </tbody>
-          </table>
-        </div>
-        <p style="font-size:11px;color:var(--muted);margin-top:.85rem;font-weight:500;">* 550M total supply. Not financial advice.</p>
-      </div>
-    </div>
-
-    <hr class="divider">
-
-    <!-- AIRDROP -->
-    <div class="doc-section" id="airdrop">
-      <h2>Hypurr airdrop</h2>
-      <p>Holders of <strong>Hypurr NFTs</strong> at snapshot block <strong>#35,694,294</strong> receive a free Hyptoadz NFT + $TOADZ airdrop based on how many Hypurr they held.</p>
-
-      <div class="info-grid">
-        <div class="info-card"><label>Total airdrop</label><value>105M</value><span>$TOADZ allocated</span></div>
-        <div class="info-card"><label>Unique holders</label><value>3,505</value><span>wallets eligible</span></div>
-        <div class="info-card"><label>Snapshot block</label><value>#35,694,294</value><span>HyperEVM mainnet</span></div>
-      </div>
-
-      <h3 style="margin-top:1.5rem;">Airdrop tiers</h3>
-      <div class="table-wrap">
-        <table>
-          <tr><th>Hypurr NFTs held</th><th>Hyptoadz NFTs</th><th>$TOADZ received</th><th>Wallets</th></tr>
-          <tr><td><strong>1 – 4</strong></td><td class="td-green">1 NFT</td><td class="td-green">22,826</td><td>3,453</td></tr>
-          <tr><td><strong>5 – 9</strong></td><td class="td-green">2 NFTs</td><td class="td-green">45,652</td><td>35</td></tr>
-          <tr><td><strong>10+</strong></td><td class="td-green">4 NFTs</td><td class="td-green">91,304</td><td>17</td></tr>
-          <tr style="background:rgba(123,198,122,.05);">
-            <td colspan="2"><strong>Total</strong></td>
-            <td class="td-yellow"><strong>81,968,166 $TOADZ</strong></td>
-            <td><strong>3,505 wallets</strong></td>
-          </tr>
-        </table>
-      </div>
-
-      <div class="callout callout-green" style="margin-top:1rem;">
-        <span class="callout-icon">✦</span>
-        Each Hyptoadz NFT from airdrop comes with <strong>22,826 $TOADZ</strong>. Hold 5-9 Hypurr = 2 Hyptoadz = 45,652 $TOADZ. Hold 10+ = 4 Hyptoadz = 91,304 $TOADZ.
-      </div>
-
-      <h3 style="margin-top:1.5rem;">Airdrop surplus</h3>
-      <div class="table-wrap">
-        <table>
-          <tr><th>Item</th><th>Amount</th></tr>
-          <tr><td>Total $TOADZ allocated for airdrop</td><td class="td-green">105,000,000</td></tr>
-          <tr><td>Total $TOADZ distributed to 3,505 wallets</td><td>81,968,166</td></tr>
-          <tr><td><strong>Surplus</strong></td><td class="td-yellow"><strong>23,031,834 $TOADZ</strong></td></tr>
-          <tr><td>Surplus destination</td><td>NFT staking pool — auto-added via the distribution function</td></tr>
-        </table>
-      </div>
-      <p style="font-size:13px;color:var(--muted);margin-top:.75rem;">Only 3,591 of the 3,600 airdrop NFTs were distributed. The remaining 23,031,834 $TOADZ goes directly into the NFT staking rewards pool.</p>
-
-      <h3 style="margin-top:1.5rem;">9 reserved NFTs</h3>
-      <p>The 9 unclaimed airdrop NFTs are reserved by the creator for community events:</p>
-      <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:.75rem;margin-top:.75rem;">
-        <div style="background:var(--surface2);border:1px solid var(--border);border-radius:8px;padding:.875rem;text-align:center;">
-          <div style="font-family:'Archivo Black',sans-serif;font-size:1.1rem;color:var(--green);">3 NFTs</div>
-          <div style="font-size:12px;color:var(--muted);margin-top:4px;">Twitter/X giveaway at launch</div>
-        </div>
-        <div style="background:var(--surface2);border:1px solid var(--border);border-radius:8px;padding:.875rem;text-align:center;">
-          <div style="font-family:'Archivo Black',sans-serif;font-size:1.1rem;color:var(--green);">3 NFTs</div>
-          <div style="font-size:12px;color:var(--muted);margin-top:4px;">Twitter/X community contest</div>
-        </div>
-        <div style="background:var(--surface2);border:1px solid var(--border);border-radius:8px;padding:.875rem;text-align:center;">
-          <div style="font-family:'Archivo Black',sans-serif;font-size:1.1rem;color:var(--green);">3 NFTs</div>
-          <div style="font-size:12px;color:var(--muted);margin-top:4px;">Future community events</div>
-        </div>
-      </div>
-      <div class="callout callout-green" style="margin-top:1rem;">
-        <span class="callout-icon">✦</span>
-        All 9 giveaway NFTs are on-chain verifiable. They come from the same airdrop supply (IDs within #1–#3,600), distributed by the creator wallet after airdrop completes — verifiable on-chain.
-      </div>
-
-      <h3 style="margin-top:1.5rem;">Snapshot info</h3>
-      <div class="code-block">
-<span class="key">Block:</span>    <span class="val">#35,694,294</span>
-<span class="key">Network:</span>  <span class="val">HyperEVM mainnet (chain ID 999)</span>
-<span class="key">Contract:</span> <span class="val">0x9125E2d6827a00B0F8330D6ef7BEF07730Bac685</span>
-<span class="key">Holders:</span>  <span class="val">3,505 unique wallets</span>
-<span class="key">NFTs:</span>     <span class="val">4,600 / 4,600 verified</span>
-      </div>
-
-      <div class="callout callout-yellow" style="margin-top:1rem;">
-        <span class="callout-icon">⚠️</span>
-        Snapshot is already taken. Eligibility is fixed at block #35,694,294. Your Hypurr NFTs must have been in your own wallet — not staked or locked in any contract — at that block.
-      </div>
-    </div>
-
-    <hr class="divider">
-
-    <!-- LOCK -->
-    <div class="doc-section" id="lock">
-      <h2>48-hour fair launch lock</h2>
-      <p>All NFTs and $TOADZ tokens are <strong>non-transferable</strong> during the 48-hour mint window. This ensures a fair launch — no one can sell before liquidity is created.</p>
-      <div class="table-wrap">
-        <table>
-          <tr><th>Action</th><th>During mint</th><th>After LP added</th></tr>
-          <tr><td>Mint NFT</td><td><span class="pill pill-green">Allowed</span></td><td><span class="pill pill-green">Allowed</span></td></tr>
-          <tr><td>Transfer NFT</td><td><span class="pill pill-red">Locked</span></td><td><span class="pill pill-green">Unlocked</span></td></tr>
-          <tr><td>Transfer $TOADZ</td><td><span class="pill pill-red">Locked</span></td><td><span class="pill pill-green">Unlocked</span></td></tr>
-          <tr><td>Stake NFT</td><td><span class="pill pill-red">Locked</span></td><td><span class="pill pill-green">Unlocked</span></td></tr>
-          <tr><td>Stake $TOADZ</td><td><span class="pill pill-red">Locked</span></td><td><span class="pill pill-green">Unlocked</span></td></tr>
-          <tr><td>Trade on DEX</td><td><span class="pill pill-red">Locked</span></td><td><span class="pill pill-green">Unlocked</span></td></tr>
-        </table>
-      </div>
-      <p>The lock is lifted automatically when the liquidity function is called. System contracts (mint, staking) are excluded from the lock to allow normal operations.</p>
-    </div>
-
-    <hr class="divider">
-
-    <!-- SUPPLY -->
-    <div class="doc-section" id="supply">
-      <span class="tag">✦ Tokenomics</span>
-      <h2>Supply breakdown</h2>
-      <div class="table-wrap">
-        <table>
-          <tr><th>Allocation</th><th>Amount</th><th>%</th><th>Notes</th></tr>
-          <tr><td><strong>Mint rewards</strong></td><td class="td-green">180,000,000</td><td>32.7%</td><td>27,855 per mint · unsold → staking pool</td></tr>
-          <tr><td><strong>Hypurr airdrop</strong></td><td class="td-green">105,000,000</td><td>19.1%</td><td>22,826 / 45,652 / 91,304 per tier</td></tr>
-          <tr><td><strong>LP pool</strong></td><td class="td-green">100,000,000</td><td>18.2%</td><td>Burned to 0xDead permanently</td></tr>
-          <tr><td><strong>NFT staking</strong></td><td class="td-green">90,000,000</td><td>16.4%</td><td>Staking pool + unsold mint surplus</td></tr>
-          <tr><td><strong>Token staking</strong></td><td class="td-green">50,000,000</td><td>9.1%</td><td>Staking rewards pool</td></tr>
-          <tr><td><strong>Revenue share</strong></td><td class="td-green">25,000,000</td><td>4.5%</td><td>From tax distribution</td></tr>
-          <tr><td><strong>Team / VC</strong></td><td>0</td><td>0%</td><td>None</td></tr>
-          <tr><td><strong>TOTAL</strong></td><td class="td-yellow">550,000,000</td><td>100%</td><td>Fixed, no additional minting</td></tr>
-        </table>
-      </div>
-    </div>
-
-    <hr class="divider">
-
-    <!-- DYNAMIC SPLIT -->
-    <div class="doc-section" id="dynamic-split">
-      <h2>Dynamic mint split</h2>
-      <p>Each 0.077 HYPE mint fee is automatically split between the creator wallet and the LP pool. As more NFTs are minted, a larger share goes to LP — ensuring deeper liquidity at launch.</p>
-      <div class="table-wrap">
-        <table>
-          <tr><th>Tier</th><th>NFTs minted</th><th>Creator %</th><th>LP %</th><th>Creator HYPE</th><th>LP HYPE</th></tr>
-          <tr><td><strong>1</strong></td><td>1 – 1,500</td><td><span class="pill pill-yellow">40%</span></td><td><span class="pill pill-green">60%</span></td><td>46.20</td><td>69.30</td></tr>
-          <tr><td><strong>2</strong></td><td>1,501 – 3,000</td><td><span class="pill pill-yellow">35%</span></td><td><span class="pill pill-green">65%</span></td><td>40.43</td><td>75.08</td></tr>
-          <tr><td><strong>3</strong></td><td>3,001 – 4,500</td><td><span class="pill pill-yellow">30%</span></td><td><span class="pill pill-green">70%</span></td><td>34.65</td><td>80.85</td></tr>
-          <tr><td><strong>4</strong></td><td>4,501 – 6,000</td><td><span class="pill pill-yellow">25%</span></td><td><span class="pill pill-green">75%</span></td><td>28.88</td><td>86.63</td></tr>
-          <tr><td><strong>5</strong></td><td>6,001 – 6,400</td><td><span class="pill pill-yellow">20%</span></td><td><span class="pill pill-green">80%</span></td><td>7.13</td><td>28.53</td></tr>
-          <tr><td colspan="2"><strong>Total (sold out)</strong></td><td></td><td></td><td class="td-yellow">157.29 HYPE</td><td class="td-green">340.39 HYPE</td></tr>
-        </table>
-      </div>
-      <div class="callout callout-green">
-        <span class="callout-icon">✦</span>
-        If sold out, ~340 HYPE goes to LP. At $56/HYPE that's ~$19,040 in liquidity paired with 100M $TOADZ — giving a listing price of ~$0.000190 per $TOADZ.
-      </div>
-    </div>
-
-    <hr class="divider">
-
-    <!-- WHERE FEES GO -->
-    <div class="doc-section" id="fee-breakdown">
-      <h2>Where mint fees go</h2>
-      <p>Every 0.077 HYPE mint fee is split between the creator and the LP pool. The split changes per tier — more mints = more goes to LP.</p>
-
-      <h3 style="margin-top:1.25rem;">Total mint fee distribution (sold out)</h3>
-      <div class="table-wrap">
-        <table>
-          <tr><th>Destination</th><th>Total HYPE</th><th>%</th><th>Purpose</th></tr>
-          <tr>
-            <td><strong>LP pool</strong></td>
-            <td class="td-green">~340 HYPE</td>
-            <td class="td-green">~68%</td>
-            <td>Paired with 100M $TOADZ → permanent liquidity on HyperSwap V2</td>
-          </tr>
-          <tr>
-            <td><strong>Creator fund</strong></td>
-            <td class="td-yellow">~157 HYPE</td>
-            <td class="td-yellow">~32%</td>
-            <td>Development, marketing, DripTrade & OpenSea listing</td>
-          </tr>
-          <tr style="background:rgba(123,198,122,.05);">
-            <td><strong>Total</strong></td>
-            <td class="td-green"><strong>~497 HYPE</strong></td>
-            <td>100%</td>
-            <td>6,400 NFTs × 0.077 HYPE</td>
-          </tr>
-        </table>
-      </div>
-      <div class="callout callout-green" style="margin-top:1rem;">
-        <span class="callout-icon">✦</span>
-        68% of all mint revenue goes directly to LP — locked permanently. Creator share decreases from 40% → 20% as more NFTs are minted.
-      </div>
-
-      <h3 style="margin-top:1.5rem;">What the creator fund covers</h3>
-      <p>The creator's share (~157 HYPE at sold out) covers hosting, marketplace listings, marketing, and community events. No pre-mine. No team tokens. Creator only earns if people mint.</p>
-
-      <div class="callout callout-green">
-        <span class="callout-icon">✦</span>
-        No pre-mine. No team tokens. No VC allocation. Creator only gets paid if people mint — and less per mint as more people join.
-      </div>
-
-      <h3 style="margin-top:1.5rem;">Total fee distribution (sold out)</h3>
-      <div class="table-wrap">
-        <table>
-          <tr><th>Tier</th><th>NFTs</th><th>Creator %</th><th>Creator HYPE</th><th>LP HYPE</th></tr>
-          <tr><td>1</td><td>1–1,500</td><td><span class="pill pill-yellow">40%</span></td><td>46.2</td><td>69.3</td></tr>
-          <tr><td>2</td><td>1,501–3,000</td><td><span class="pill pill-yellow">35%</span></td><td>40.4</td><td>75.1</td></tr>
-          <tr><td>3</td><td>3,001–4,500</td><td><span class="pill pill-yellow">30%</span></td><td>34.7</td><td>80.9</td></tr>
-          <tr><td>4</td><td>4,501–6,000</td><td><span class="pill pill-yellow">25%</span></td><td>28.9</td><td>86.6</td></tr>
-          <tr><td>5</td><td>6,001–6,400</td><td><span class="pill pill-yellow">20%</span></td><td>7.1</td><td>28.5</td></tr>
-          <tr style="background:rgba(123,198,122,.05);">
-            <td colspan="2"><strong>Total</strong></td>
-            <td></td>
-            <td class="td-yellow"><strong>157.3 HYPE</strong></td>
-            <td class="td-green"><strong>340.4 HYPE</strong></td>
-          </tr>
-        </table>
-      </div>
-    </div>
-
-    <hr class="divider">
-
-    <!-- TAX -->
-    <div class="doc-section" id="tax">
-      <h2>Buy/sell tax</h2>
-      <p>A 5% tax applies to all DEX buys and sells. Wallet-to-wallet transfers are <strong>not taxed</strong>.</p>
-      <div class="table-wrap">
-        <table>
-          <tr><th>Tax type</th><th>Rate</th><th>Staking (60%)</th><th>Burn (20%)</th><th>LP (20%)</th></tr>
-          <tr><td><strong>Buy tax</strong></td><td class="td-green">5%</td><td>3.0%</td><td>1.0%</td><td>1.0%</td></tr>
-          <tr><td><strong>Sell tax</strong></td><td class="td-green">5%</td><td>3.0%</td><td>1.0%</td><td>1.0%</td></tr>
-        </table>
-      </div>
-      <p>Tax only activates after <code>setDexPair()</code> is called post-LP creation. System contracts (mint, staking) are excluded from tax.</p>
-    </div>
-
-    <hr class="divider">
-
-    <!-- LP -->
-    <div class="doc-section" id="lp">
-      <h2>Liquidity pool</h2>
-      <p>The LP is created on <strong>HyperSwap V2</strong> using HYPE + 100M $TOADZ. LP tokens are burned to <code>0xDead</code> — permanently locking the liquidity.</p>
-      <div class="callout callout-red">
-        <span class="callout-icon">🔒</span>
-        LP tokens are burned at creation. No one — including the team — can ever remove the liquidity. This is enforced by the smart contract with no admin override.
-      </div>
-      <div class="table-wrap" style="margin-top:1.25rem;">
-        <table>
-          <tr><th>Parameter</th><th>Value</th></tr>
-          <tr><td>DEX</td><td><strong>HyperSwap V2</strong></td></tr>
-          <tr><td>Pair</td><td><strong>TOADZ / WHYPE</strong></td></tr>
-          <tr><td>$TOADZ in LP</td><td class="td-green">100,000,000</td></tr>
-          <tr><td>HYPE in LP (est. sold out)</td><td class="td-green">~340 HYPE</td></tr>
-          <tr><td>LP token destination</td><td><strong>0x000...Dead (burned)</strong></td></tr>
-          <tr><td>Listing price (est.)</td><td class="td-green">~$0.000190 per $TOADZ</td></tr>
-        </table>
-      </div>
-    </div>
-
-    <hr class="divider">
-
-    <!-- CREATOR FUND -->
-    <div class="doc-section" id="creator-fund">
-      <span class="tag">✦ Transparency</span>
-      <h2>Creator fund</h2>
-      <p>The creator receives a portion of each mint fee based on the dynamic split (40% → 20%). At sold out, this totals approximately <strong>157 HYPE (~$8,800)</strong>.</p>
-
-      <div class="callout callout-green">
-        <span class="callout-icon">✦</span>
-        No pre-mine, no team tokens, no VC allocation. The creator fund comes only from mint revenue — if nobody mints, creator gets nothing.
-      </div>
-
-      <h3 style="margin-top:1.5rem;">What the fund covers</h3>
-      <div class="table-wrap">
-        <table>
-          <tr><th>Category</th><th>Details</th></tr>
-          <tr><td><strong>Marketing</strong></td><td>Twitter/X promotion, community building, influencer outreach</td></tr>
-          <tr><td><strong>Marketplace listing</strong></td><td>OpenSea, Blur, HyperEVM marketplace listing & verification fees</td></tr>
-          <tr><td><strong>Infrastructure</strong></td><td>Server, domain, and IPFS storage</td></tr>
-          <tr><td><strong>Development</strong></td><td>Staking UI, mobile-friendly site, future features</td></tr>
-          <tr><td><strong>Community</strong></td><td>Holder events, contests, giveaways</td></tr>
-        </table>
-      </div>
-
-
-    </div>
-
-    <hr class="divider">
-
-    <!-- NFT STAKING -->
-    <div class="doc-section" id="nft-staking">
-      <span class="tag">✦ Staking</span>
-      <h2>NFT staking</h2>
-      <p>Stake your Hyptoadz NFT to earn $TOADZ rewards. Rewards are distributed proportionally — longer lock = bigger share of the daily pool.</p>
-      <h3>Lock periods</h3>
-      <div class="table-wrap">
-        <table>
-          <tr><th>Lock period</th><th>Weight multiplier</th><th>Notes</th></tr>
-          <tr><td>No lock</td><td class="td-green">1×</td><td>Unstake anytime</td></tr>
-          <tr><td>7 days</td><td class="td-green">1.6×</td><td>Early unstake = forfeit rewards</td></tr>
-          <tr><td>30 days</td><td class="td-green">3×</td><td>Early unstake = forfeit rewards</td></tr>
-          <tr><td>90 days</td><td class="td-green">5×</td><td>Early unstake = forfeit rewards</td></tr>
-          <tr><td>180 days</td><td class="td-green">8×</td><td>Maximum rewards</td></tr>
-        </table>
-      </div>
-      <h3 style="margin-top:1.5rem;">Rarity multipliers</h3>
-      <div class="table-wrap">
-        <table>
-          <tr><th>Rarity</th><th>Multiplier</th></tr>
-          <tr><td>Common</td><td>1x</td></tr>
-          <tr><td>Uncommon</td><td>1.6x</td></tr>
-          <tr><td>Rare</td><td>3x</td></tr>
-          <tr><td>Legendary</td><td>6x</td></tr>
-          <tr><td>Genesis</td><td>10x</td></tr>
-        </table>
-      </div>
-      <div class="callout callout-yellow">
-        <span class="callout-icon">⚠️</span>
-        Early unstake forfeits ALL pending rewards. Choose your lock period carefully.
-      </div>
-    </div>
-
-    <hr class="divider">
-
-    <!-- TOKEN STAKING -->
-    
-
-    <!-- SPLIT FUNDS -->
-    
-
-    <!-- ADD LIQUIDITY -->
-    
-
-    <!-- TRAITS -->
-    <div class="doc-section" id="traits">
-      <span class="tag">✦ NFT</span>
-      <h2>Traits & rarity</h2>
-      <p>Each Hyptoadz is generated from 7 trait layers with a total of 77 unique traits. Japanese streetwear meets modern crypto culture.</p>
-      <div class="table-wrap">
-        <table>
-          <tr><th>Layer</th><th>Count</th><th>Traits</th></tr>
-          <tr><td><strong>Background</strong></td><td>10</td><td>Teal, Dark Green, Black, Purple, Blue, Red, Grey, Brown, Orange, White</td></tr>
-          <tr><td><strong>Body</strong></td><td>6</td><td>Green, Dark Green, Brown, Grey, Yellow, Blue</td></tr>
-          <tr><td><strong>Eyes</strong></td><td>12</td><td>Normal, Sleepy, Angry, Sad, Surprised, Dead, Red, Blue, Gold, Closed, Wink, Laser</td></tr>
-          <tr><td><strong>Mouth</strong></td><td>8</td><td>Grumpy, Smile, Open, Sad, Gold Tooth, Cigarette, Tongue, Pipe</td></tr>
-          <tr><td><strong>Clothes</strong></td><td>15</td><td>Hoodie (Green/Black/Grey/White), Kimono (Green/Black), Haori, Yukata, Samurai Armor, Ninja Suit, Suit, Leather Jacket, Robe, Puffer, None</td></tr>
-          <tr><td><strong>Head</strong></td><td>15</td><td>None, Kasa, Samurai Helm, Bandana, Headband, Cap Backward, Beanie, Crown, Bucket Hat, Top Hat, Halo, Horns, Flower, Headphones, Oni Mask</td></tr>
-          <tr><td><strong>Accessories</strong></td><td>11</td><td>None, Katana, Gold Chain, Monocle, Sunglasses, Scar, War Paint, Eye Patch, Gold Earring, Tattoo, Pearl Necklace</td></tr>
-        </table>
-      </div>
-      <div class="callout callout-green">
-        <span class="callout-icon">✦</span>
-        Rarity is determined by trait combination frequency. Legendary and Genesis rarity NFTs have significantly higher staking multipliers.
-      </div>
-    </div>
-
-    <hr class="divider">
-
-    <!-- METADATA -->
-    
-
-  </main>
-</div>
+<!-- TOKENOMICS -->
+<h2>Tokenomics</h2>
+<table>
+  <tr><th>Allocation</th><th>Amount</th><th>%</th><th>Notes</th></tr>
+  <tr><td>Mint rewards</td><td>180,000,000</td><td>32.7%</td><td>27,855 per mint</td></tr>
+  <tr><td>Hypurr airdrop</td><td>105,000,000</td><td>19.1%</td><td>Snapshot #35,694,294</td></tr>
+  <tr><td>LP pool</td><td>100,000,000</td><td>18.2%</td><td>Burned to 0xDead</td></tr>
+  <tr><td>NFT staking</td><td>90,000,000</td><td>16.4%</td><td>Proportional rewards</td></tr>
+  <tr><td>Token staking</td><td>50,000,000</td><td>9.1%</td><td>Staking rewards pool</td></tr>
+  <tr><td>Revenue share</td><td>25,000,000</td><td>4.5%</td><td>From buy/sell tax</td></tr>
+  <tr><td><strong>Team / VC</strong></td><td><strong>0</strong></td><td><strong>0%</strong></td><td><strong>None</strong></td></tr>
+  <tr><td><strong>TOTAL</strong></td><td><strong>550,000,000</strong></td><td><strong>100%</strong></td><td>Fixed supply</td></tr>
+</table>
+
+<!-- AIRDROP -->
+<h2>Hypurr Airdrop</h2>
+<p>Snapshot taken at HyperEVM block <strong>#35,694,294</strong>. 3,505 unique Hypurr holders are eligible.</p>
+<table>
+  <tr><th>Hypurr Held</th><th>Hyptoadz NFTs</th><th>$TOADZ</th><th>Wallets</th></tr>
+  <tr><td>1 – 4</td><td>1 NFT</td><td>22,826</td><td>3,453</td></tr>
+  <tr><td>5 – 9</td><td>2 NFTs</td><td>45,652</td><td>35</td></tr>
+  <tr><td>10+</td><td>4 NFTs</td><td>91,304</td><td>17</td></tr>
+</table>
+<div class="note"><strong>No claiming required.</strong> Airdrop is distributed automatically at mint. Check if your wallet is eligible: <a href="https://gist.github.com/Hyptoadz/5286c" target="_blank">Eligible wallets list ↗</a></div>
+
+<!-- 48H LOCK -->
+<h2>48-Hour Fair Launch Lock</h2>
+<p>All NFTs and $TOADZ are non-transferable during the 48-hour mint window. Everyone unlocks at exactly the same time.</p>
+<table>
+  <tr><th>Action</th><th>During Mint</th><th>After LP Added</th></tr>
+  <tr><td>Mint NFT</td><td>✅ Allowed</td><td>✅ Allowed</td></tr>
+  <tr><td>Transfer NFT</td><td>🔒 Locked</td><td>✅ Unlocked</td></tr>
+  <tr><td>Transfer $TOADZ</td><td>🔒 Locked</td><td>✅ Unlocked</td></tr>
+  <tr><td>Trade on DEX</td><td>🔒 Locked</td><td>✅ Unlocked</td></tr>
+</table>
+<div class="note">After 48h, <strong>anyone</strong> can trigger <code>splitFundsAndAddLiquidity()</code> — permissionless. LP tokens are burned to 0xDead permanently.</div>
+
+<!-- STAKING -->
+<h2>NFT Staking</h2>
+<p>Daily pool: <strong>10,000 $TOADZ/day</strong> distributed proportionally. Longer lock = bigger share.</p>
+<table>
+  <tr><th>Lock Period</th><th>Weight Multiplier</th></tr>
+  <tr><td>No lock</td><td>1×</td></tr>
+  <tr><td>7 days</td><td>1.6×</td></tr>
+  <tr><td>30 days</td><td>3×</td></tr>
+  <tr><td>90 days</td><td>5×</td></tr>
+  <tr><td>180 days</td><td>8×</td></tr>
+</table>
+<div class="warn">⚠️ Early unstake forfeits ALL pending rewards.</div>
+
+<!-- BUY/SELL TAX -->
+<h2>Buy / Sell Tax</h2>
+<p>5% tax on all DEX trades. Wallet-to-wallet transfers are not taxed.</p>
+<table>
+  <tr><th>Destination</th><th>%</th></tr>
+  <tr><td>Staking rewards</td><td>60% (3%)</td></tr>
+  <tr><td>Burn (0xDead)</td><td>20% (1%)</td></tr>
+  <tr><td>Liquidity pool</td><td>20% (1%)</td></tr>
+  <tr><td><strong>Team / Dev</strong></td><td><strong>0%</strong></td></tr>
+</table>
+
+<!-- CONTRACTS -->
+<h2>Smart Contracts</h2>
+<div class="warn">⚠️ Contract addresses will be published after mainnet deploy. Do not interact with unverified contracts.</div>
+<table>
+  <tr><th>Contract</th><th>Address</th></tr>
+  <tr><td>HyptoadzNFT</td><td><span class="badge">— Pending mainnet deploy —</span></td></tr>
+  <tr><td>ToadzToken ($TOADZ)</td><td><span class="badge">— Pending mainnet deploy —</span></td></tr>
+  <tr><td>HyptoadzMint</td><td><span class="badge">— Pending mainnet deploy —</span></td></tr>
+  <tr><td>NFTStaking</td><td><span class="badge">— Pending mainnet deploy —</span></td></tr>
+  <tr><td>TokenStaking</td><td><span class="badge">— Pending mainnet deploy —</span></td></tr>
+</table>
+<div class="note"><strong>Network:</strong> HyperEVM mainnet (Chain ID 999) · <strong>DEX:</strong> HyperSwap V2 · <strong>Royalty:</strong> 2.5%</div>
 
 <footer>
-  <p>✦ Hyptoadz — <a href="https://hyptoadz.xyz">Back to main site</a> · <a href="https://x.com/hyptoadznft">Twitter</a> · © 2026 Hyptoadz</p>
+  <p>© 2026 Hyptoadz · <a href="https://x.com/hyptoadznft" target="_blank">𝕏 Twitter</a> · Built on <a href="https://hyperliquid.xyz" target="_blank">HyperEVM</a></p>
 </footer>
 
-<script src="docs.js"></script>
-
-
-
-
 </body>
+</html>
