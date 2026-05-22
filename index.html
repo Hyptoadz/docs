@@ -14,9 +14,16 @@ body{background:var(--bg);color:var(--text);font-family:'Archivo',sans-serif;fon
 /* NAV */
 nav{background:rgba(30,58,42,0.97);backdrop-filter:blur(12px);border-bottom:1px solid var(--border);padding:0 2rem;display:flex;align-items:center;justify-content:space-between;height:62px;position:sticky;top:0;z-index:100;}
 .nav-logo{font-family:'Archivo Black',sans-serif;font-size:18px;color:var(--green);text-decoration:none;display:flex;align-items:center;gap:8px;}
+.nav-links{display:flex;align-items:center;gap:1.5rem;}
+.nav-links a{color:var(--muted);text-decoration:none;font-size:14px;font-weight:600;transition:color .2s;}
+.nav-links a:hover{color:var(--text);}
+.nav-btn{background:var(--green);color:#1A2E1A;padding:9px 22px;border-radius:8px;font-size:14px;font-weight:700;font-family:'Archivo Black',sans-serif;text-decoration:none;}
+.nav-right{display:flex;align-items:center;gap:1.5rem;}
+.nav-right a{color:var(--muted);text-decoration:none;font-size:14px;font-weight:600;transition:color .2s;}
 .nav-right{display:flex;align-items:center;gap:1.5rem;}
 .nav-right a{color:var(--muted);text-decoration:none;font-size:14px;font-weight:600;transition:color .2s;}
 .nav-right a:hover{color:var(--text);}
+.nav-right a.active{color:var(--text);}
 .nav-btn{background:var(--green);color:#1A2E1A;padding:9px 22px;border-radius:8px;font-size:14px;font-weight:700;font-family:'Archivo Black',sans-serif;text-decoration:none;}
 
 /* LAYOUT */
