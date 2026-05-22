@@ -30,19 +30,25 @@ tr:last-child td{border-bottom:none;}
 header{border-bottom:1px solid var(--border);padding-bottom:1.5rem;margin-bottom:2rem;}
 .logo{font-size:1.1rem;font-weight:700;color:var(--green);margin-bottom:1rem;}
 footer{border-top:1px solid var(--border);margin-top:3rem;padding-top:1.5rem;text-align:center;color:var(--muted);font-size:14px;}
+.faq-item{border:1px solid var(--border);border-radius:10px;overflow:hidden;margin-bottom:.5rem;}
+.faq-q{padding:1rem 1.25rem;font-size:14px;font-weight:700;cursor:pointer;display:flex;justify-content:space-between;align-items:center;transition:background .15s;color:var(--text);}
+.faq-q:hover{background:var(--surface2);}
+.faq-arr{color:var(--green);font-size:16px;transition:transform .2s;flex-shrink:0;}
+.faq-arr.open{transform:rotate(180deg);}
+.faq-a{padding:0 1.25rem 1rem;font-size:14px;color:var(--muted);line-height:1.8;display:none;}
+.faq-a.open{display:block;}
+.td-green{color:var(--green);font-weight:700;}
+.td-yellow{color:var(--yellow);font-weight:700;}
 @media(max-width:600px){.grid{grid-template-columns:1fr;}}
 </style>
 </head>
 <body>
-
 <header>
   <div class="logo">✦ Hyptoadz</div>
   <h1>Documentation</h1>
   <p>10,000 grumpy toads on HyperEVM. This page covers tokenomics, airdrop, staking, and smart contract details.</p>
   <div class="note">⚠️ Contract addresses will be published after mainnet deploy. Website launches at the same time.</div>
 </header>
-
-<!-- OVERVIEW -->
 <div class="tag">✦ Overview</div>
 <div class="grid">
   <div class="card"><div class="card-label">Total NFTs</div><div class="card-value">10,000</div></div>
@@ -50,8 +56,6 @@ footer{border-top:1px solid var(--border);margin-top:3rem;padding-top:1.5rem;tex
   <div class="card"><div class="card-label">$TOADZ per Mint</div><div class="card-value">27,855</div></div>
   <div class="card"><div class="card-label">Total Supply</div><div class="card-value">550M</div></div>
 </div>
-
-<!-- TOKENOMICS -->
 <h2>Tokenomics</h2>
 <table>
   <tr><th>Allocation</th><th>Amount</th><th>%</th><th>Notes</th></tr>
@@ -64,8 +68,6 @@ footer{border-top:1px solid var(--border);margin-top:3rem;padding-top:1.5rem;tex
   <tr><td><strong>Team / VC</strong></td><td><strong>0</strong></td><td><strong>0%</strong></td><td><strong>None</strong></td></tr>
   <tr><td><strong>TOTAL</strong></td><td><strong>550,000,000</strong></td><td><strong>100%</strong></td><td>Fixed supply</td></tr>
 </table>
-
-<!-- AIRDROP -->
 <h2>Hypurr Airdrop</h2>
 <p>Snapshot taken at HyperEVM block <strong>#35,694,294</strong>. 3,505 unique Hypurr holders are eligible.</p>
 <table>
@@ -74,9 +76,7 @@ footer{border-top:1px solid var(--border);margin-top:3rem;padding-top:1.5rem;tex
   <tr><td>5 – 9</td><td>2 NFTs</td><td>45,652</td><td>35</td></tr>
   <tr><td>10+</td><td>4 NFTs</td><td>91,304</td><td>17</td></tr>
 </table>
-<div class="note"><strong>No claiming required.</strong> Airdrop is distributed automatically at mint. Check if your wallet is eligible: <a href="https://gist.github.com/Hyptoadz/5286c9b27aced9ca62efe052b5978a95" target="_blank">Eligible wallets list ↗</a></div>
-
-<!-- 48H LOCK -->
+<div class="note"><strong>No claiming required.</strong> Airdrop is distributed automatically at mint. Check eligibility: <a href="https://gist.github.com/Hyptoadz/5286c9b27aced9ca62efe052b5978a95" target="_blank">Eligible wallets list ↗</a></div>
 <h2>48-Hour Fair Launch Lock</h2>
 <p>All NFTs and $TOADZ are non-transferable during the 48-hour mint window. Everyone unlocks at exactly the same time.</p>
 <table>
@@ -86,22 +86,40 @@ footer{border-top:1px solid var(--border);margin-top:3rem;padding-top:1.5rem;tex
   <tr><td>Transfer $TOADZ</td><td>🔒 Locked</td><td>✅ Unlocked</td></tr>
   <tr><td>Trade on DEX</td><td>🔒 Locked</td><td>✅ Unlocked</td></tr>
 </table>
-<div class="note">After 48h, <strong>anyone</strong> can trigger <code>splitFundsAndAddLiquidity()</code> — permissionless. LP tokens are burned to 0xDead permanently.</div>
-
-<!-- STAKING -->
+<div class="note">After 48h, <strong>anyone</strong> can trigger <code style="background:rgba(123,198,122,.1);color:var(--green);padding:2px 6px;border-radius:4px;font-size:13px;">splitFundsAndAddLiquidity()</code> — permissionless. LP tokens burned to 0xDead permanently.</div>
 <h2>NFT Staking</h2>
-<p>Daily pool: <strong>10,000 $TOADZ/day</strong> distributed proportionally. Longer lock = bigger share.</p>
+<p>Stake your Hyptoadz NFT to earn $TOADZ rewards. Daily pool: <strong>10,000 $TOADZ/day</strong> distributed proportionally.</p>
+<h3>Lock periods</h3>
 <table>
-  <tr><th>Lock Period</th><th>Weight Multiplier</th></tr>
-  <tr><td>No lock</td><td>1×</td></tr>
-  <tr><td>7 days</td><td>1.6×</td></tr>
-  <tr><td>30 days</td><td>3×</td></tr>
-  <tr><td>90 days</td><td>5×</td></tr>
-  <tr><td>180 days</td><td>8×</td></tr>
+  <tr><th>Lock Period</th><th>Weight Multiplier</th><th>Notes</th></tr>
+  <tr><td>No lock</td><td class="td-green">1×</td><td>Unstake anytime</td></tr>
+  <tr><td>7 days</td><td class="td-green">1.6×</td><td>Early unstake = forfeit rewards</td></tr>
+  <tr><td>30 days</td><td class="td-green">3×</td><td>Early unstake = forfeit rewards</td></tr>
+  <tr><td>90 days</td><td class="td-green">5×</td><td>Early unstake = forfeit rewards</td></tr>
+  <tr><td>180 days</td><td class="td-green">8×</td><td>Maximum rewards</td></tr>
 </table>
-<div class="warn">⚠️ Early unstake forfeits ALL pending rewards.</div>
-
-<!-- BUY/SELL TAX -->
+<h3>Rarity multipliers</h3>
+<table>
+  <tr><th>Rarity Tier</th><th>Supply (est.)</th><th>Staking Multiplier</th></tr>
+  <tr><td>Common</td><td>~4,500</td><td class="td-green">1×</td></tr>
+  <tr><td>Uncommon</td><td>~3,500</td><td class="td-green">1.6×</td></tr>
+  <tr><td>Rare</td><td>~1,500</td><td class="td-green">3×</td></tr>
+  <tr><td>Legendary</td><td>~400</td><td class="td-green">6×</td></tr>
+  <tr><td><strong style="color:var(--yellow);">Genesis</strong></td><td>~100</td><td class="td-yellow">10×</td></tr>
+</table>
+<div class="note">✦ <strong>Genesis</strong> is the rarest tier — top 1% of all 10,000 Hyptoadz by rarity score. Rarity is determined by trait combination frequency across the full collection.</div>
+<div class="warn">⚠️ Early unstake forfeits ALL pending rewards. Choose your lock period carefully.</div>
+<h2>Token Staking</h2>
+<p>Stake your $TOADZ tokens to earn rewards from the 50M token staking pool. No NFT required.</p>
+<table>
+  <tr><th>Parameter</th><th>Value</th></tr>
+  <tr><td>Pool size</td><td class="td-green">50,000,000 $TOADZ</td></tr>
+  <tr><td>Lock required</td><td>None — flexible</td></tr>
+  <tr><td>Minimum stake</td><td>Any amount</td></tr>
+  <tr><td>Reward source</td><td>50M pool + 20% of 5% buy/sell tax</td></tr>
+  <tr><td>Unstake penalty</td><td>None</td></tr>
+</table>
+<div class="note">✦ Token staking is separate from NFT staking. Participate in both to maximize earnings.</div>
 <h2>Buy / Sell Tax</h2>
 <p>5% tax on all DEX trades. Wallet-to-wallet transfers are not taxed.</p>
 <table>
@@ -111,8 +129,18 @@ footer{border-top:1px solid var(--border);margin-top:3rem;padding-top:1.5rem;tex
   <tr><td>Liquidity pool</td><td>20% (1%)</td></tr>
   <tr><td><strong>Team / Dev</strong></td><td><strong>0%</strong></td></tr>
 </table>
-
-<!-- CONTRACTS -->
+<h2>Traits & Rarity</h2>
+<p>Each Hyptoadz is generated from 7 trait layers with a total of 77 unique traits.</p>
+<table>
+  <tr><th>Layer</th><th>Count</th><th>Traits</th></tr>
+  <tr><td><strong>Background</strong></td><td>10</td><td>Teal, Dark Green, Black, Purple, Blue, Red, Grey, Brown, Orange, White</td></tr>
+  <tr><td><strong>Body</strong></td><td>6</td><td>Green, Dark Green, Brown, Grey, Yellow, Blue</td></tr>
+  <tr><td><strong>Eyes</strong></td><td>12</td><td>Normal, Sleepy, Angry, Sad, Surprised, Dead, Red, Blue, Gold, Closed, Wink, Laser</td></tr>
+  <tr><td><strong>Mouth</strong></td><td>8</td><td>Grumpy, Smile, Open, Sad, Gold Tooth, Cigarette, Tongue, Pipe</td></tr>
+  <tr><td><strong>Clothes</strong></td><td>15</td><td>Hoodie (Green/Black/Grey/White), Kimono (Green/Black), Haori, Yukata, Samurai Armor, Ninja Suit, Suit, Leather Jacket, Robe, Puffer, None</td></tr>
+  <tr><td><strong>Head</strong></td><td>15</td><td>None, Kasa, Samurai Helm, Bandana, Headband, Cap Backward, Beanie, Crown, Bucket Hat, Top Hat, Halo, Horns, Flower, Headphones, Oni Mask</td></tr>
+  <tr><td><strong>Accessories</strong></td><td>11</td><td>None, Katana, Gold Chain, Monocle, Sunglasses, Scar, War Paint, Eye Patch, Gold Earring, Tattoo, Pearl Necklace</td></tr>
+</table>
 <h2>Smart Contracts</h2>
 <div class="warn">⚠️ Contract addresses will be published after mainnet deploy. Do not interact with unverified contracts.</div>
 <table>
@@ -124,93 +152,24 @@ footer{border-top:1px solid var(--border);margin-top:3rem;padding-top:1.5rem;tex
   <tr><td>TokenStaking</td><td><span class="badge">— Pending mainnet deploy —</span></td></tr>
 </table>
 <div class="note"><strong>Network:</strong> HyperEVM mainnet (Chain ID 999) · <strong>DEX:</strong> HyperSwap V2 · <strong>Royalty:</strong> 2.5%</div>
-
-
-
-<!-- WALLET CHECKER -->
 <h2>Check Airdrop Eligibility</h2>
 <p>Enter your wallet address to check if you are eligible for the Hypurr airdrop.</p>
 <div style="margin:1rem 0;">
-  <input id="wallet-input" type="text" placeholder="0x..." 
-    style="width:100%;padding:12px 16px;background:var(--surface);border:1px solid var(--border);border-radius:8px;color:var(--text);font-size:14px;font-family:monospace;outline:none;box-sizing:border-box;">
-  <button onclick="checkWallet()" 
-    style="margin-top:.75rem;width:100%;padding:12px;background:var(--green);color:#1A2E1A;border:none;border-radius:8px;font-size:15px;font-weight:700;cursor:pointer;">
-    Check Eligibility
-  </button>
+  <input id="wallet-input" type="text" placeholder="0x..." style="width:100%;padding:12px 16px;background:var(--surface);border:1px solid var(--border);border-radius:8px;color:var(--text);font-size:14px;font-family:monospace;outline:none;box-sizing:border-box;">
+  <button onclick="checkWallet()" style="margin-top:.75rem;width:100%;padding:12px;background:var(--green);color:#1A2E1A;border:none;border-radius:8px;font-size:15px;font-weight:700;cursor:pointer;">Check Eligibility</button>
 </div>
 <div id="checker-result" style="display:none;margin-top:1rem;padding:1rem 1.25rem;border-radius:10px;font-size:15px;"></div>
-
 <script>
-const GIST_URL = 'https://gist.githubusercontent.com/Hyptoadz/5286c9b27aced9ca62efe052b5978a95/raw/';
-let airdropList = null;
-
-async function loadList() {
-  if (airdropList) return airdropList;
-  try {
-    const res = await fetch(GIST_URL);
-    const text = await res.text();
-    airdropList = text.toLowerCase().split('\n').map(l => l.trim()).filter(Boolean);
-    return airdropList;
-  } catch(e) {
-    return null;
-  }
-}
-
-async function checkWallet() {
-  const input = document.getElementById('wallet-input').value.trim().toLowerCase();
-  const result = document.getElementById('checker-result');
-  
-  if (!input || !input.startsWith('0x') || input.length !== 42) {
-    result.style.display = 'block';
-    result.style.background = 'rgba(240,100,100,.08)';
-    result.style.border = '1px solid rgba(240,100,100,.2)';
-    result.style.color = '#E8A0A0';
-    result.innerHTML = '⚠️ Please enter a valid wallet address (0x...)';
-    return;
-  }
-
-  result.style.display = 'block';
-  result.style.background = 'var(--surface)';
-  result.style.border = '1px solid var(--border)';
-  result.style.color = 'var(--muted)';
-  result.innerHTML = 'Checking...';
-
-  const list = await loadList();
-  if (!list) {
-    result.innerHTML = '❌ Could not load airdrop list. Try again.';
-    return;
-  }
-
-  const found = list.find(line => line.includes(input));
-  
-  if (found) {
-    // Parse tier dari line
-    let nfts = '1 NFT', toadz = '22,826 $TOADZ';
-    if (found.includes('4 nft') || found.includes(',4,')) { nfts = '4 NFTs'; toadz = '91,304 $TOADZ'; }
-    else if (found.includes('2 nft') || found.includes(',2,')) { nfts = '2 NFTs'; toadz = '45,652 $TOADZ'; }
-    
-    result.style.background = 'rgba(123,198,122,.08)';
-    result.style.border = '1px solid rgba(123,198,122,.3)';
-    result.style.color = 'var(--text)';
-    result.innerHTML = '✅ <strong style="color:#7BC67A">Eligible for airdrop!</strong><br><span style="color:var(--muted);font-size:14px;">You will receive ' + nfts + ' + ' + toadz + ' — automatically distributed at mint. No claiming required.</span>';
-  } else {
-    result.style.background = 'var(--surface)';
-    result.style.border = '1px solid var(--border)';
-    result.style.color = 'var(--text)';
-    result.innerHTML = '❌ <strong>Not eligible for airdrop.</strong><br><span style="color:var(--muted);font-size:14px;">You can still mint during public phase.</span>';
-  }
-}
-
-document.getElementById('wallet-input').addEventListener('keypress', function(e) {
-  if (e.key === 'Enter') checkWallet();
-});
+const GIST_URL='https://gist.githubusercontent.com/Hyptoadz/5286c9b27aced9ca62efe052b5978a95/raw/';
+let airdropList=null;
+async function loadList(){if(airdropList)return airdropList;try{const r=await fetch(GIST_URL);const t=await r.text();airdropList=t.toLowerCase().split('\n').map(l=>l.trim()).filter(Boolean);return airdropList;}catch(e){return null;}}
+async function checkWallet(){const input=document.getElementById('wallet-input').value.trim().toLowerCase();const result=document.getElementById('checker-result');if(!input||!input.startsWith('0x')||input.length!==42){result.style.display='block';result.style.background='rgba(240,100,100,.08)';result.style.border='1px solid rgba(240,100,100,.2)';result.style.color='#E8A0A0';result.innerHTML='⚠️ Please enter a valid wallet address (0x...)';return;}result.style.display='block';result.style.background='var(--surface)';result.style.border='1px solid var(--border)';result.style.color='var(--muted)';result.innerHTML='Checking...';const list=await loadList();if(!list){result.innerHTML='❌ Could not load airdrop list. Try again.';return;}const found=list.find(line=>line.includes(input));if(found){let nfts='1 NFT',toadz='22,826 $TOADZ',tier='Tier 1 (1–4 Hypurr)';if(found.includes('10+')&&found.includes(' 4 ')){nfts='4 NFTs';toadz='91,304 $TOADZ';tier='Tier 3 (10+ Hypurr)';}else if(found.includes('5-9')&&found.includes(' 2 ')){nfts='2 NFTs';toadz='45,652 $TOADZ';tier='Tier 2 (5–9 Hypurr)';}result.style.background='rgba(123,198,122,.08)';result.style.border='1px solid rgba(123,198,122,.3)';result.style.color='var(--text)';result.innerHTML='🎉 <strong style="color:#7BC67A">Eligible! '+tier+' — check your wallet!</strong><br><span style="color:var(--muted);font-size:14px;">You will receive '+nfts+' + '+toadz+' — automatically distributed at mint.</span>';}else{result.style.background='var(--surface)';result.style.border='1px solid var(--border)';result.style.color='var(--text)';result.innerHTML='❌ <strong>Not eligible.</strong><br><span style="color:var(--muted);font-size:14px;">You can still mint during public phase.</span>';}}
+document.getElementById('wallet-input').addEventListener('keypress',function(e){if(e.key==='Enter')checkWallet();});
 </script>
-
-<!-- MCAP SCENARIOS -->
 <h2>$TOADZ Mcap Scenarios</h2>
-<p>Based on sold-out scenario. 1 mint = 27,855 $TOADZ at cost 0.077 HYPE (~$4.40).</p>
+<p>Based on sold-out scenario. 1 mint = 27,855 $TOADZ at cost 0.077 HYPE.</p>
 <table>
-  <tr><th>Scenario</th><th>$TOADZ Mcap</th><th>Price per $TOADZ</th><th>27,855 $TOADZ Value</th><th>ROI</th></tr>
+  <tr><th>Scenario</th><th>$TOADZ Mcap</th><th>Price per $TOADZ</th><th>27,855 Value</th><th>ROI</th></tr>
   <tr><td>🟡 Listing</td><td>~$111,305</td><td>$0.000202</td><td>~$5.63</td><td style="color:#7BC67A">+27%</td></tr>
   <tr><td>$500K</td><td>$500,000</td><td>$0.000909</td><td>~$25.32</td><td style="color:#7BC67A">+475%</td></tr>
   <tr><td>$1M</td><td>$1,000,000</td><td>$0.001818</td><td>~$50.65</td><td style="color:#7BC67A">+1,051%</td></tr>
@@ -218,11 +177,27 @@ document.getElementById('wallet-input').addEventListener('keypress', function(e)
   <tr><td>$10M</td><td>$10,000,000</td><td>$0.018182</td><td>~$506.45</td><td style="color:#7BC67A">+10,510%</td></tr>
   <tr><td>$50M</td><td>$50,000,000</td><td>$0.090909</td><td>~$2,532.27</td><td style="color:#7BC67A">+55,052%</td></tr>
 </table>
-<div class="note">Based on 550M total supply. Listing price calculated from sold-out LP (~340 HYPE + 100M $TOADZ). <strong>Not financial advice.</strong></div>
-
+<div class="note">Based on 550M total supply. Listing price from sold-out LP (~340 HYPE + 100M $TOADZ). <strong>Not financial advice.</strong></div>
+<h2>FAQ</h2>
+<div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)">Do I need to be a Hypurr holder to mint? <span class="faq-arr">↓</span></div>
+<div class="faq-a">No. Anyone can mint during the 48h public window. Hypurr holders get a free airdrop automatically — the public mint is open to all.</div></div>
+<div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)">When does the mint open? <span class="faq-arr">↓</span></div>
+<div class="faq-a">Announced on <a href="https://x.com/hyptoadznft" target="_blank">Twitter/X @HyptoadzNFT</a>. The Hypurr airdrop is distributed automatically before the public mint opens.</div></div>
+<div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)">What happens if mint doesn't sell out? <span class="faq-arr">↓</span></div>
+<div class="faq-a">Unsold mint rewards (180M $TOADZ) flow into the NFT staking pool, increasing rewards for holders.</div></div>
+<div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)">Can the team rug pull? <span class="faq-arr">↓</span></div>
+<div class="faq-a">No. LP tokens are burned to 0xDead by the smart contract. No team tokens, no pre-mine, no admin override.</div></div>
+<div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)">How do I stake my NFT or $TOADZ? <span class="faq-arr">↓</span></div>
+<div class="faq-a">After mint ends and LP is created, go to the staking page. Stake NFTs with optional lock periods, or stake $TOADZ tokens with no lock required.</div></div>
+<div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)">Where can I trade $TOADZ? <span class="faq-arr">↓</span></div>
+<div class="faq-a">HyperSwap V2 on HyperEVM. Goes live automatically after the 48h mint window. NFTs trade on DripTrade and other HyperEVM marketplaces.</div></div>
+<div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)">What wallets are supported? <span class="faq-arr">↓</span></div>
+<div class="faq-a">MetaMask and Rabby. Any EVM wallet supporting custom networks works. Site auto-prompts to add HyperEVM (chain ID 999).</div></div>
+<script>
+function toggleFaq(el){const a=el.nextElementSibling,ar=el.querySelector('.faq-arr');const open=a.classList.contains('open');document.querySelectorAll('.faq-a').forEach(x=>x.classList.remove('open'));document.querySelectorAll('.faq-arr').forEach(x=>x.classList.remove('open'));if(!open){a.classList.add('open');ar.classList.add('open');}}
+</script>
 <footer>
   <p>© 2026 Hyptoadz · <a href="https://x.com/hyptoadznft" target="_blank">𝕏 Twitter</a> · Built on <a href="https://hyperliquid.xyz" target="_blank">HyperEVM</a></p>
 </footer>
-
 </body>
 </html>
